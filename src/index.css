@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-	--color-background: #0f1418;
-	--color-foreground: #f0f2f5;
+	--color-background: #0F1418;
+	--color-foreground: #F0F2F5;
 
-	--color-card: #141a1f;
+	--color-card: #141A1F;
 
-	--color-primary: #20b2a6;
-	--color-primary-foreground: #ffffff;
+	--color-primary: #20b2A6;
+	--color-primary-foreground: #FFFFFF;
 
-	--color-secondary: #1f2830;
-	--color-secondary-foreground: #20b2a6;
+	--color-secondary: #1F2830;
+	--color-secondary-foreground: #20b2A6;
 
-	--color-muted: #252e37;
-	--color-muted-foreground: #7a8491;
+	--color-muted: #252E37;
+	--color-muted-foreground: #7A8491;
 
-	--color-border: #242b32;
+	--color-border: #242B32;
 
 	--radius: 0.75rem;
 
-	--color-highlight: #f5a623;
-	--color-surface: #1a2329;
+	--color-highlight: #f5A623;
+	--color-surface: #1A2329;
 }
 
 @layer base {
@@ -69,7 +69,28 @@
 		}
 	}
 
+	@keyframes slow-drift {
+
+		0%,
+		100% {
+			transform: translate(0, 0);
+		}
+
+		25% {
+			transform: translate(20px, -30px);
+		}
+
+		50% {
+			transform: translate(-15px, -20px);
+		}
+
+		75% {
+			transform: translate(30px, 10px);
+		}
+	}
+
 	.animate-fade-in {
 		animation: fade-in 0.8s ease-out both;
 	}
+
 }
