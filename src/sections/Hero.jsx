@@ -1,6 +1,15 @@
 import AnimatedBorderButton from "@/components/AnimatedBorderButton";
 import Button from "@/components/Button";
-import { ArrowRight, ChevronDown, Github, Linkedin, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Code, Github, Linkedin } from "lucide-react";
+
+const socials = [
+  { icon: Github, href: "https://github.com/mantaringcymonluther" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/cymon-luther-mantaring-b1b050290/",
+  },
+  { icon: Code, href: "https://dev.to/" },
+];
 
 const skills = [
   "React",
@@ -96,13 +105,10 @@ const Hero = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me:</span>
-              {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: X, href: "#" },
-              ].map((social, index) => (
+              {socials.map((social, index) => (
                 <a
                   href={social.href}
+                  target="_blank"
                   key={index}
                   className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
@@ -120,7 +126,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
+                  src="/profile-photo.png"
                   alt="Cymon Luther Mantaring"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
