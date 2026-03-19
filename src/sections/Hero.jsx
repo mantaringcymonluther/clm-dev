@@ -1,6 +1,13 @@
+import {
+  ArrowRight,
+  ChevronDown,
+  Code,
+  Download,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import AnimatedBorderButton from "@/components/AnimatedBorderButton";
 import Button from "@/components/Button";
-import { ArrowRight, ChevronDown, Code, Github, Linkedin } from "lucide-react";
 
 const socials = [
   { icon: Github, href: "https://github.com/mantaringcymonluther" },
@@ -99,7 +106,10 @@ const Hero = () => {
               <Button size="lg">
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
-              <AnimatedBorderButton />
+              <AnimatedBorderButton>
+                <Download className="w-5 h-5" />
+                Download CV
+              </AnimatedBorderButton>
             </div>
 
             {/* Social Links */}
