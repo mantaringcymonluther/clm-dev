@@ -81,6 +81,20 @@
 		}
 	}
 
+	@keyframes fade-out {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+			filter: blur(0);
+		}
+
+		to {
+			opacity: 0;
+			transform: translateY(-20px);
+			filter: blur(10px);
+		}
+	}
+
 	@keyframes slow-drift {
 
 		0%,
@@ -158,6 +172,10 @@
 
 	.animate-fade-in {
 		animation: fade-in 0.8s ease-out both;
+	}
+
+	.animate-fade-out {
+		animation: fade-out 0.8s ease-in forwards;
 	}
 
 	.animate-float {
