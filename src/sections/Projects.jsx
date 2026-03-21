@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, Github } from "lucide-react";
 import AnimatedBorderButton from "@/components/AnimatedBorderButton";
 
@@ -41,6 +42,8 @@ const projects = [
 ];
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
       {/* Background Glows */}
@@ -129,7 +132,7 @@ const Projects = () => {
 
         {/* View All CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
+          <AnimatedBorderButton onClick={() => navigate("/projects")}>
             View All Projects <ArrowUpRight />
           </AnimatedBorderButton>
         </div>

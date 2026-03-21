@@ -1,4 +1,5 @@
 import { Github, Linkedin, Code, Heart } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const socials = [
   { icon: Github, href: "https://github.com/mantaringcymonluther" },
@@ -10,14 +11,35 @@ const socials = [
 ];
 
 const footerLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const currentYear = new Date().getFullYear();
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const section = href.replace("/#", "");
+
+    if (location.pathname === "/") {
+      // already on home page, just scroll
+      document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // navigate home first, then scroll after page loads
+      navigate("/");
+      setTimeout(() => {
+        document
+          .getElementById(section)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
 
   return (
     <footer className="py-12 border-t border-border">
@@ -25,7 +47,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight">
+            <a href="/" className="text-xl font-bold tracking-tight">
               CLM<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
@@ -39,6 +61,7 @@ const Footer = () => {
               <a
                 key={index}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}

@@ -7,35 +7,35 @@ const testimonials = [
       "As a supervisor during his intern days, I noticed he learns quickly and turns knowledge into code. He asks thoughtful questions, which contributed to building the compliance system.",
     author: "Nikko Niel Zamora",
     role: "IT Head Supervisor, People360",
-    avatar: "/people/Nikko Niel Zamora.jpeg",
+    avatar: "/testimonials/nikko-niel-zamora.jpeg",
   },
   {
     quote:
       "As a team lead, he’s easy to manage, takes tasks seriously, and consistently delivers on time, even under pressure.",
     author: "June Roe Nasayao",
     role: "Developer Team Lead, Inobei. Inc",
-    avatar: "/testimonials/June Roe Nasayao.jpeg",
+    avatar: "/testimonials/june-roe-nasayao.jpeg",
   },
   {
     quote:
       "Fast to design and implement fixes on our website using Wix Studio. Easy to communicate with and follows instructions very well.",
     author: "Dr. Shaun Tan",
     role: "Consultant in Health Tech, Alternative Medicine & GP Services",
-    avatar: "/testimonials/Dr. Shaun Tan.png",
+    avatar: "/testimonials/dr-shaun-tan.png",
   },
   {
     quote:
       "Easy to collaborate with. We share ideas on using graphics effectively in the system.",
     author: "Jam Songsong",
     role: "Graphic Designer & Marketing Head, Inobei Inc.",
-    avatar: "/testimonials/Jam Songsong.jpeg",
+    avatar: "/testimonials/jam-songsong.jpeg",
   },
   {
     quote:
       "The compliance system he developed is still in use today, proving that his code stands the test of time.",
     author: "Mark Christian Dela Cruz",
     role: "IMS Officer, People360",
-    avatar: "/testimonials/Mark Christian Dela Cruz.png",
+    avatar: "/testimonials/mark-christian-dela-cruz.png",
   },
 ];
 

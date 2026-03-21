@@ -1,4 +1,4 @@
-const AnimatedBorderButton = ({ children, href, download }) => {
+const AnimatedBorderButton = ({ children, href, download, onClick }) => {
   const Tag = href ? "a" : "button";
 
   const handleDownload = async (e) => {
@@ -17,11 +17,16 @@ const AnimatedBorderButton = ({ children, href, download }) => {
     }
   };
 
+  const handleClick = (e) => {
+    if (download) handleDownload(e);
+    if (onClick) onClick(e);
+  };
+
   return (
     <Tag
       href={href}
       download={download}
-      onClick={handleDownload}
+      onClick={handleClick}
       className="relative bg-transparent border border-border 
         text-foreground hover:border-primary/50 transition-all 
         duration-1000 focus:outline-none focus-visible:ring-2 

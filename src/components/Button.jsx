@@ -17,4 +17,5 @@ const Button = ({ className = "", size = "default", children, ...props }) => {
     </button>
   );
 };
+
 export default Button;

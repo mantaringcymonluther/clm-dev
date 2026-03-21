@@ -1,12 +1,13 @@
-import Button from "@/components/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import Button from "@/components/Button";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "/#about", label: "About" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#testimonials", label: "Testimonials" },
 ];
 
 const Navbar = () => {
@@ -23,13 +24,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const section = href.replace("/#", "");
+
+    if (location.pathname === "/") {
+      // already on home page, just scroll
+      document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // navigate home first, then scroll after page loads
+      navigate("/");
+      setTimeout(() => {
+        document
+          .getElementById(section)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"} z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
-          href="#"
+          href="/"
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
           CLM<span className="text-primary">.</span>
@@ -42,6 +64,7 @@ const Navbar = () => {
               <a
                 href={link.href}
                 key={index}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
               >
                 {link.label}
@@ -52,14 +75,7 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button
-            size="sm"
-            onClick={() =>
-              document
-                .querySelector("#contact")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-          >
+          <Button size="sm" onClick={(e) => handleNavClick(e, "/#contact")}>
             Contact Me
           </Button>
         </div>
@@ -81,7 +97,10 @@ const Navbar = () => {
               <a
                 href={link.href}
                 key={index}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  handleNavClick(e, link.href);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="text-lg text-muted-foreground hover:text-foreground py-2"
               >
                 {link.label}
