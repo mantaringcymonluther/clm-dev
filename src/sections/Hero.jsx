@@ -45,7 +45,7 @@ const Hero = () => {
       {/* Baackground */}
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.jpg"
+          src="/images/hero-bg.jpg"
           alt="Hero Image"
           className="w-full h-full object-cover opacity-40"
         />
@@ -113,11 +113,11 @@ const Hero = () => {
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
               <AnimatedBorderButton
-                href="/Mantaring-Cymon-Luther-CV.pdf"
-                download="Mantaring Cymon Luther - CV.pdf"
+                href="/projects/mantaring-cymon-luther-resume.pdf"
+                download="Mantaring Cymon Luther - Resume.pdf"
               >
                 <Download className="w-5 h-5" />
-                Download CV
+                Download Resume
               </AnimatedBorderButton>
             </div>
 
@@ -145,7 +145,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.png"
+                  src="/personal/clm-profile-photo.png"
                   alt="Cymon Luther Mantaring"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />

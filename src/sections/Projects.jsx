@@ -3,37 +3,37 @@ import AnimatedBorderButton from "@/components/AnimatedBorderButton";
 
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "Project 1",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
-    image: "/projects/project1.png",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti obcaecati eos fugiat, impedit sapiente aperiam.",
+    image: "/projects/project-image-placeholder.jpg",
     tags: ["React", "Typescript", "NodeJS"],
     link: "#",
     github: "#",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Project 2",
     description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
-    image: "/projects/project2.png",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti obcaecati eos fugiat, impedit sapiente aperiam.",
+    image: "/projects/project-image-placeholder.jpg",
     tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
     link: "#",
     github: "#",
   },
   {
-    title: "AI Writing Assistant",
+    title: "Project 3",
     description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
-    image: "/projects/project3.png",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti obcaecati eos fugiat, impedit sapiente aperiam.",
+    image: "/projects/project-image-placeholder.jpg",
     tags: ["React", "OpenAI", "Python", "FastAPI"],
     link: "#",
     github: "#",
   },
   {
-    title: "Project Management Tool",
+    title: "Project 4",
     description:
-      "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
-    image: "/projects/project4.png",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti obcaecati eos fugiat, impedit sapiente aperiam.",
+    image: "/projects/project-image-placeholder.jpg",
     tags: ["Next.js", "Socket.io", "MongoDB", "Redis"],
     link: "#",
     github: "#",
