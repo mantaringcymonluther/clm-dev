@@ -59,8 +59,6 @@ const Navbar = () => {
       }
     };
 
-    console.log("Navbar Click Outside");
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileMenuOpen]);
@@ -138,7 +136,7 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-strong animate-fade-in mt-3">
+        <div className="md:hidden glass-strong animate-fade-in-fast mt-3">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <a
