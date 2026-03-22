@@ -11,21 +11,21 @@ const testimonials = [
   },
   {
     quote:
-      "As a team lead, he’s easy to manage, takes tasks seriously, and consistently delivers on time, even under pressure.",
+      "As his team lead, I found him easy to manage. He takes tasks seriously and consistently delivers on time, even under pressure.",
     author: "June Roe Nasayao",
     role: "Developer Team Lead, Inobei. Inc",
     avatar: "/testimonials/june-roe-nasayao.jpeg",
   },
   {
     quote:
-      "Fast to design and implement fixes on our website using Wix Studio. Easy to communicate with and follows instructions very well.",
+      "He is fast at designing and implementing fixes on our Wix Studio website. He is easy to communicate with and follows instructions very well.",
     author: "Dr. Shaun Tan",
     role: "Consultant in Health Tech, Alternative Medicine & GP Services",
     avatar: "/testimonials/dr-shaun-tan.png",
   },
   {
     quote:
-      "Easy to collaborate with. We share ideas on using graphics effectively in the system.",
+      "He is easy to collaborate with. We share ideas effectively, especially when integrating graphics into the system.",
     author: "Jam Songsong",
     role: "Graphic Designer & Marketing Head, Inobei Inc.",
     avatar: "/testimonials/jam-songsong.jpeg",
@@ -63,9 +63,8 @@ const Testimonials = () => {
 
   // Start on mount, clean up on unmount
   useEffect(() => {
-    startAutoPlay();
+    // startAutoPlay(); // toggle this to autoplay testimonials
     return () => stopAutoPlay();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const goTo = (index, dir) => {
@@ -74,7 +73,7 @@ const Testimonials = () => {
     setActiveIndex(index);
 
     restartTimeoutRef.current = setTimeout(() => {
-      startAutoPlay();
+      // startAutoPlay(); // toggle this to autoplay testimonials
     }, 3000);
   };
 
@@ -87,6 +86,52 @@ const Testimonials = () => {
     const index = (activeIndex + 1) % testimonials.length;
     goTo(index, "left");
   };
+
+  // Slide Feature - START
+  const cardRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const mouseStartX = useRef(0);
+  const isDragging = useRef(false);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    card.addEventListener("touchmove", (e) => e.preventDefault(), {
+      passive: false,
+    });
+    return () =>
+      card.removeEventListener("touchmove", (e) => e.preventDefault());
+  }, []);
+
+  const handleSwipe = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) < 50) return;
+    if (diff > 0) next();
+    else previous();
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    handleSwipe();
+  };
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    mouseStartX.current = e.clientX;
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    touchStartX.current = mouseStartX.current;
+    touchEndX.current = e.clientX;
+    handleSwipe();
+  };
+  // Slide Feature - END
 
   return (
     <section
@@ -120,6 +165,11 @@ const Testimonials = () => {
             {/* Main Testimonial */}
             <div
               key={activeIndex}
+              ref={cardRef}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
               className={`glass p-8 md:p-12 glow-border relative
       ${direction === "left" ? "slide-in-left" : "slide-in-right"}`}
             >

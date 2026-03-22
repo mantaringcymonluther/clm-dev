@@ -59,34 +59,42 @@ const Navbar = () => {
       }
     };
 
+    console.log("Navbar Click Outside");
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileMenuOpen]);
   // Navbar Click Outside - END
 
-  // Navbar Body Scroll Lock — START
+  // Navbar Backdrop - START
   useEffect(() => {
     if (isMobileMenuOpen) {
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      const backdrop = document.createElement("div");
+      backdrop.id = "mobile-backdrop";
+      backdrop.className = "fixed inset-0 bg-black/50 backdrop-blur-sm z-40";
+      document.body.appendChild(backdrop);
     } else {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
+      const backdrop = document.getElementById("mobile-backdrop");
+      if (backdrop) {
+        document.body.removeChild(backdrop);
+      }
     }
 
     return () => {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
+      const backdrop = document.getElementById("mobile-backdrop");
+      if (backdrop) document.body.removeChild(backdrop);
     };
   }, [isMobileMenuOpen]);
-  // Navbar Body Scroll Lock — END
+  // Navbar Backdrop - END
 
   return (
     <header
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? `glass-strong pt-3 ${isMobileMenuOpen ? "pb-0" : "pb-3"}` : "bg-transparent py-5"} z-50`}
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+        isScrolled || isMobileMenuOpen
+          ? `glass-strong pt-3 ${isMobileMenuOpen ? "pb-0" : "pb-3"}`
+          : "bg-transparent py-5"
+      } z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a

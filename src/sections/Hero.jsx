@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import AnimatedBorderButton from "@/components/AnimatedBorderButton";
 import Button from "@/components/Button";
+import Marquee from "@/components/Marquee";
 
 const socials = [
   { icon: Github, href: "https://github.com/mantaringcymonluther" },
@@ -16,26 +17,6 @@ const socials = [
     href: "https://www.linkedin.com/in/cymon-luther-mantaring-b1b050290/",
   },
   { icon: Code, href: "https://dev.to/" },
-];
-
-const skills = [
-  "Laravel",
-  "React.js",
-  "PHP",
-  "MySQL",
-  "NodeJS",
-  "Git",
-  "GitHub Actions",
-  "TypeScript",
-  "React Native",
-  "Expo",
-  "jQuery",
-  "JavaScript",
-  "HTML",
-  "CSS",
-  "Wix Studio",
-  "Figma",
-  "Photoshop",
 ];
 
 /* eslint-disable react-hooks/purity */
@@ -174,22 +155,7 @@ const Hero = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="mt-20 animate-fade-in animation-delay-600">
-          <p className="text-sm text-muted-foreground mb-6 text-center">
-            Technologies I work with
-          </p>
-          <div className="relative overflow-hidden">
-            <div className="flex animate-marquee">
-              {[...skills, ...skills].map((skill, index) => (
-                <div key={index} className="flex-shrink-0 px-8 py-4">
-                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <Marquee />
       </div>
       {/* Content - END */}
 
