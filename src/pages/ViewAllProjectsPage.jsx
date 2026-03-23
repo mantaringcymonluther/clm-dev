@@ -78,7 +78,7 @@ const projects = [
   },
 ];
 
-const ViewAllProjects = () => {
+const ViewAllProjectsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -198,4 +198,4 @@ const ViewAllProjects = () => {
     </section>
   );
 };
-export default ViewAllProjects;
+export default ViewAllProjectsPage;

@@ -7,7 +7,8 @@ import Experience from "@/sections/Experience";
 import Testimonials from "@/sections/Testimonials";
 import Contact from "@/sections/Contact";
 import Footer from "@/layout/Footer";
-import ViewAllProjects from "@/pages/ViewAllProjects";
+import ViewAllProjectsPage from "@/pages/ViewAllProjectsPage";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
                 </>
               }
             />
-            <Route path="/projects" element={<ViewAllProjects />} />
+            <Route path="/projects" element={<ViewAllProjectsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
